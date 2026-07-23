@@ -1,6 +1,6 @@
-# create-kuikly-app
+# @kuikly-ai/create-kuikly-app
 
-CLI tool for the [Kuikly](https://github.com/nicosResOrg/nicosResOrg.github.io) cross-platform framework.  
+
 One command to scaffold a full Kuikly project — **zero IDE interaction required**.
 
 Designed to be **AI Agent friendly**: every command supports `--json` structured output, fully non-interactive operation, and structured error codes.
@@ -11,23 +11,23 @@ Designed to be **AI Agent friendly**: every command supports `--json` structured
 
 ```bash
 # Create a new project (interactive-friendly output)
-npx create-kuikly-app create MyApp --package com.example.myapp
+npx @kuikly-ai/create-kuikly-app create MyApp --package com.example.myapp
 
 # Or with Compose DSL
-npx create-kuikly-app create MyApp --package com.example.myapp --dsl compose
+npx @kuikly-ai/create-kuikly-app create MyApp --package com.example.myapp --dsl compose
 
 # AI Agent mode (JSON output)
-npx create-kuikly-app --json create MyApp --package com.example.myapp
+npx @kuikly-ai/create-kuikly-app --json create MyApp --package com.example.myapp
 ```
 
 ## Installation
 
 ```bash
 # Use directly with npx (recommended)
-npx create-kuikly-app create MyApp
+npx @kuikly-ai/create-kuikly-app create MyApp
 
 # Or install globally
-npm install -g create-kuikly-app
+npm install -g @kuikly-ai/create-kuikly-app
 kuikly create MyApp --package com.example.myapp
 ```
 
@@ -40,7 +40,7 @@ kuikly create MyApp \
   --package com.example.myapp \
   --dsl kuikly \
   --kotlin-version 2.1.21 \
-  --kuikly-version 2.16.0 \
+  --kuikly-version 2.23.2 \
   --shared-module shared \
   --h5 \
   --miniapp \
@@ -193,7 +193,7 @@ kuikly publish \
 
 ```bash
 kuikly upgrade                                     # Upgrade to latest
-kuikly upgrade --kuikly-version 2.16.0             # Specific Kuikly version
+kuikly upgrade --kuikly-version 2.23.2             # Specific Kuikly version
 kuikly upgrade --kotlin-version 2.1.21 --dry-run   # Preview changes
 ```
 
@@ -372,14 +372,7 @@ When a build fails, the `--json` output includes machine-parseable diagnostics:
 
 ### Remote Templates
 
-Templates are fetched from a remote registry at runtime, so the CLI stays lightweight and templates can be updated independently of CLI releases.
-
-```bash
-# Use a custom registry
-KUIKLY_REGISTRY_URL=https://your-server.com/registry.json kuikly create MyApp
-```
-
-Template cache is stored at `~/.kuikly/cache/`.
+Templates are bundled with the npm package and used directly — no remote fetching required.
 
 ### Template File Format
 
@@ -397,8 +390,8 @@ Templates use [Handlebars](https://handlebarsjs.com/) syntax:
 
 The CLI **does not** bundle Kuikly SDK versions. Instead:
 
-1. A remote `registry.json` defines the latest supported versions
-2. The CLI fetches this at runtime to resolve default versions
+1. A `registry.json` shipped with the package defines the latest supported versions
+2. The CLI reads this at runtime to resolve default versions
 3. You can always pin specific versions via `--kuikly-version` and `--kotlin-version`
 4. Projects use `buildSrc/KotlinBuildVar.kt` for centralized version management
 
@@ -453,7 +446,7 @@ Run `kuikly doctor` to verify your environment. Required tools:
 
 ```bash
 # Clone and install
-git clone https://github.com/nicosResOrg/create-kuikly-app.git
+git clone https://github.com/zealotchen/create-kuikly-app.git
 cd create-kuikly-app
 npm install
 

@@ -1,6 +1,6 @@
 {
-  "name": "create-kuikly-app",
-  "version": "0.2.7",
+  "name": "@kuikly-ai/create-kuikly-app",
+  "version": "0.2.8",
   "description": "CLI tool to create Kuikly cross-platform projects. AI Agent friendly.",
   "keywords": [
     "kuikly",
@@ -15,11 +15,14 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wwwcg/create-kuikly-app.git"
+    "url": "https://github.com/zealotchen/create-kuikly-app.git"
   },
   "bin": {
     "create-kuikly-app": "./bin/kuikly.js",
     "kuikly": "./bin/kuikly.js"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -43,12 +46,10 @@
     "tar": "^7.4.0",
     "chalk": "^4.1.2",
     "ora": "^5.4.1",
-    "node-fetch": "^2.7.0",
     "semver": "^7.6.3"
   },
   "devDependencies": {
     "@types/node": "^20.14.0",
-    "@types/node-fetch": "^2.6.11",
     "@types/semver": "^7.5.8",
     "@types/tar": "^6.1.13",
     "typescript": "^5.5.0"

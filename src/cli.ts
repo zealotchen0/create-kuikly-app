@@ -225,14 +225,14 @@ export function createCli(): Command {
     });
 
   // ═══════════════════════════════════════════════════════
-  // Default action: if called as `create-kuikly-app MyApp`
+  // Default action: if called as `@kuikly-ai/create-kuikly-app MyApp`
   // (no subcommand), treat the first arg as a project name
   // ═══════════════════════════════════════════════════════
   program
     .argument('[project-name]', 'Project name (shorthand for "kuikly create <name>")')
     .action(async (projectName: string | undefined, options) => {
       if (projectName && !program.commands.some(c => c.name() === projectName)) {
-        // Direct invocation: npx create-kuikly-app MyApp
+        // Direct invocation: npx @kuikly-ai/create-kuikly-app MyApp
         const result = await createProject(projectName, options);
         outputResult(result);
         process.exit(result.success ? 0 : 1);

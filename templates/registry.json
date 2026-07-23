@@ -1,9 +1,8 @@
 {
   "version": "1.0.0",
-  "baseUrl": "https://raw.githubusercontent.com/nicosResOrg/create-kuikly-app/main/templates",
   "kuiklyVersions": {
-    "latest": "2.16.0",
-    "supported": ["2.16.0"]
+    "latest": "2.23.2",
+    "supported": ["2.16.0", "2.23.2"]
   },
   "kotlinVersions": {
     "latest": "2.1.21",

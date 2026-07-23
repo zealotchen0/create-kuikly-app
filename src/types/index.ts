@@ -68,9 +68,6 @@ export interface TemplateContext extends ProjectConfig {
  */
 export interface TemplateRegistry {
   version: string;
-  /** URL where templates are hosted */
-  baseUrl: string;
-  /** Latest versions info */
   kuiklyVersions: {
     latest: string;
     supported: string[];
@@ -98,8 +95,6 @@ export interface TemplateInfo {
   version: string;
   /** Is this the default template? */
   default?: boolean;
-  /** Download URL for the template archive (optional, can be derived from baseUrl) */
-  url?: string;
 }
 
 /**

@@ -5,6 +5,10 @@ dist/
 *.tgz
 .env
 
+MyApp/
+MyCompose/
+.idea
+
 # Test projects created during development
 KuiklyPreviewTest/
 KuiklyTestProject/
