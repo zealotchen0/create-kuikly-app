@@ -446,7 +446,7 @@ Run `kuikly doctor` to verify your environment. Required tools:
 
 ```bash
 # Clone and install
-git clone https://github.com/zealotchen/create-kuikly-app.git
+git clone https://github.com/zealotchen0/create-kuikly-app.git
 cd create-kuikly-app
 npm install
 
