@@ -82,6 +82,29 @@ MyApp/
 └── gradle.properties
 ```
 
+### `kuikly create-integration <project-name>` — Create an integration project
+
+Create a Kuikly integration project with full platform host apps (Android/iOS/HarmonyOS). This generates the same project structure used by the `kuikly-integration` skill's reference templates — complete with render activities, view controllers, adapters, and modules for all three platforms.
+
+```bash
+# Kuikly DSL (default)
+kuikly create-integration MyApp --package com.example.myapp
+
+# Compose DSL
+kuikly create-integration MyApp --dsl compose --package com.example.myapp
+
+# AI Agent mode
+kuikly --json create-integration MyApp --dsl kuikly --package com.example.myapp
+```
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `-p, --package <name>` | Java/Kotlin package name | `com.example.<project>` |
+| `-d, --dsl <type>` | DSL type: `kuikly` or `compose` | `kuikly` |
+| `--force` | Overwrite existing directory | `false` |
+
+**Difference from `create`:** The `create-integration` command generates a project with complete platform host apps (render activities, view controllers, adapters, bridge modules) suitable for integration into existing apps. The `create` command generates a lighter project using Handlebars templates with XcodeGen for iOS.
+
 ### `kuikly create-page <page-name>` — Add a new page
 
 ```bash

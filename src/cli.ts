@@ -9,6 +9,7 @@ import { doctor } from './commands/doctor';
 import { listAvailableTemplates } from './commands/templates-cmd';
 import { publish } from './commands/publish';
 import { upgrade } from './commands/upgrade';
+import { createIntegration } from './commands/create-integration';
 import { setJsonMode } from './utils/logger';
 import * as logger from './utils/logger';
 import { CommandResult } from './types';
@@ -52,6 +53,22 @@ export function createCli(): Command {
     .option('--force', 'Force creation even if directory exists', false)
     .action(async (projectName: string, options) => {
       const result = await createProject(projectName, options);
+      outputResult(result);
+      process.exit(result.success ? 0 : 1);
+    });
+
+  // ═══════════════════════════════════════════════════════
+  // create-integration — Create a Kuikly integration project (from skill reference templates)
+  // ═══════════════════════════════════════════════════════
+  program
+    .command('create-integration')
+    .argument('<project-name>', 'Name of the project to create')
+    .description('Create a Kuikly integration project with full platform host apps (Android/iOS/HarmonyOS)')
+    .option('-p, --package <name>', 'Java/Kotlin package name (e.g. com.example.myapp)')
+    .option('-d, --dsl <type>', 'DSL type: kuikly or compose', 'kuikly')
+    .option('--force', 'Force creation even if directory exists', false)
+    .action(async (projectName: string, options) => {
+      const result = await createIntegration(projectName, options);
       outputResult(result);
       process.exit(result.success ? 0 : 1);
     });
